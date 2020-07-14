@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesPrism.Views.MainPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout Padding="15,20" Spacing="15">
+            <Label Text="Notas" Style="{StaticResource LabelHeader}" HorizontalTextAlignment="Center"/>
+            
+            <Frame Style="{StaticResource CardView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Editor Grid.ColumnSpan="2" Placeholder="Escriba acá sus notas" Text="{Binding Text}" HeightRequest="150"/>
+
+                    <Button Grid.Row="1" Grid.Column="0" Text="Guardar"  Command="{Binding Save}"
+                    Style="{StaticResource ButtonPrimary}" />
+
+                    <Button Grid.Row="1" Grid.Column="1" Text="Cancelar" Command="{Binding Cancel}"
+                    Style="{StaticResource ButtonSecondary}"
+                    />
+                </Grid>
+            </Frame>
+
+            <BoxView HeightRequest="2" BackgroundColor="{StaticResource DarkBlue}" />
+                        
+            <StackLayout BindableLayout.ItemsSource="{Binding Files}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource CardView}">
+                            <StackLayout>
+                                <Label Text="{Binding FileName}" Style="{StaticResource LabelInfo}" />
+                                <Label Text="{Binding Text}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

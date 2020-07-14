@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "14r3fshPvPeuKfpBETCfob7d855snt4s0E0uUcCcLnd4cy4GVFVo7noub8flyoN7yARbzY5wtTqpPQBoC+VD/A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nelson Alberto\\Documents\\Visual Studio 2017\\Projects\\NotesPrism\\NotesPrism\\NotesPrism\\NotesPrism.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\dryioc.dll\\4.0.4\\dryioc.dll.4.0.4.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\prism.core\\7.2.0.1367\\prism.core.7.2.0.1367.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\prism.dryioc.forms\\7.2.0.1367\\prism.dryioc.forms.7.2.0.1367.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\prism.forms\\7.2.0.1367\\prism.forms.7.2.0.1367.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\Nelson Alberto\\.nuget\\packages\\xamarin.forms\\4.7.0.1080\\xamarin.forms.4.7.0.1080.nupkg.sha512"
+  ],
+  "logs": []
+}

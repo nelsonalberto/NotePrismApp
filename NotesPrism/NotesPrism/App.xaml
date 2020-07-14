@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             x:Class="NotesPrism.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+
+        <ResourceDictionary>
+            <!--Definimos los colores-->
+            <Color x:Key="BlueWhite">#cdfdfd</Color>
+            <Color x:Key="DarkBlue">#0065b3</Color>
+            <Color x:Key="Blue">#1d7bc3</Color>
+            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="LightBlue">#f3f7f9</Color>
+            
+            <!--Definimos los estilos-->
+            <Style x:Key="ButtonLogin" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource BlueWhite}" />
+                <Setter Property="TextColor" Value="{StaticResource DarkBlue}" />
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize"  Value="20"/>
+                <Setter Property="Padding" Value="15,0,15,0" />
+
+            </Style>
+
+            <Style x:Key="LabelHeader" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
+                <Setter Property="FontSize"  Value="30"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="LabelInfo" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkBlue}" />
+                <Setter Property="FontSize"  Value="20"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            
+            <Style x:Key="ButtonPrimary" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Blue}" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize"  Value="15"/>
+            </Style>
+
+            <Style x:Key="ButtonSecondary" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Blue}" />
+                <Setter Property="BorderColor" Value="{StaticResource Blue}"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize"  Value="15"/>
+            </Style>
+
+            <Style x:Key="CardView" TargetType="Frame">
+                <Setter Property="Padding" Value="20,20,20,20" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+
+
+        </ResourceDictionary>
+        
+	</Application.Resources>
+</prism:PrismApplication>
