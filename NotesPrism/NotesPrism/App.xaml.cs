@@ -23,13 +23,14 @@ namespace NotesPrism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("MainPage"); //Vamos a redirigir a la vista de productos
+            await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<CreateNotePage, CreateNotePageViewModel>();
         }
     }
 }

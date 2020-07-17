@@ -1,8 +1,11 @@
 ﻿using ImTools;
+using NotesPrism.Helpers;
 using NotesPrism.Models;
+using NotesPrism.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,35 +19,25 @@ namespace NotesPrism.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        #region Properties
 
-        private string _Text;
-
-        public string Text
-        {
-            get { return _Text; }
-            set { SetProperty(ref _Text, value); }
-        }
-
-        #endregion
-
-        public MainPageViewModel(INavigationService navigationService)
-            : base(navigationService)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
+            : base(navigationService, dialogService)
         {
             InitCommands();
         }
 
         #region Navigation
-        public override void Initialize(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            base.Initialize(parameters);
+            base.OnNavigatedTo(parameters);
 
             GetAllNotes();
         }
+
         #endregion
 
         #region Properties
-        private string _folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        private string _folderPath = Constants.FilePath;
 
         private ObservableCollection<FileModel> _files;
         public ObservableCollection<FileModel> Files
@@ -54,35 +47,34 @@ namespace NotesPrism.ViewModels
         }
         #endregion
 
-        #region Events
-
-        public ICommand Save { get; protected set; }
-
-        public ICommand Cancel { get; protected set; }
-
+        #region Commands
+        public ICommand SelectCommand { get; set; }
+        public ICommand CreateCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
         #endregion
 
         #region Methods
         void InitCommands() 
         {
-            Save = new Command(() =>
+            SelectCommand = new Command<FileModel>(async (item) =>
             {
-                var _fileName = Path.Combine(_folderPath, $"{Guid.NewGuid()}_AppNotes.txt");
-
-                File.WriteAllText(_fileName, Text);
-
-                Text = string.Empty;
-
-                GetAllNotes();
-
+                await PushPageAsync(nameof(CreateNotePage),(Constants.ParamFileModel,item));
             });
 
-            Cancel = new Command(() =>
+            CreateCommand = new Command(async () =>
             {
-                Text = string.Empty;
+                await PushPageAsync(nameof(CreateNotePage));
+            });
+
+            DeleteCommand = new Command<FileModel>(async (item) =>
+            {
+                if (await DialogService.DisplayAlertAsync("Eliminar nota", "¿Desea eliminar esta nota?", "Sí", "No"))
+                {
+                    File.Delete(item.FilePath);
+                    GetAllNotes();
+                }
             });
         }
-
         void GetAllNotes() 
         {
             var files = Directory.GetFiles(_folderPath, "*_AppNotes.txt");
@@ -90,11 +82,16 @@ namespace NotesPrism.ViewModels
             Files = new ObservableCollection<FileModel>(files.Select((x,i) => 
             {
                 i = i + 1;
+
+                var textPreview = File.ReadAllLines(x)[0];
+
                 return new FileModel
                 {
-                    FileName = $"Nota {i}",
+                    FileName = $"File{i}",
                     FilePath = x,
-                    Text = File.ReadAllText(x)
+                    TextPreview = (textPreview.Length > 25)? $"{textPreview.Substring(0,25)}...": textPreview,
+                    Text = File.ReadAllText(x),
+                    Date = File.GetCreationTime(x).ToString("dd/MM/yyyy")
                 };
 
             }).ToList());
