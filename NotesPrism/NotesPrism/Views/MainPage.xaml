@@ -6,15 +6,15 @@
 
     <ScrollView>
         <StackLayout Padding="15,20" Spacing="10">
-            
-            <Label Text="Notas" Style="{StaticResource LabelHeader}" HorizontalTextAlignment="Center"/>
+
+            <Label Text="&#xf15c; Notas" Style="{StaticResource LabelHeader}" HorizontalTextAlignment="Center"/>
 
             <BoxView HeightRequest="2" BackgroundColor="{StaticResource DarkBlue}" />
             
             <StackLayout BindableLayout.ItemsSource="{Binding Files}" Spacing="5">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="5, 15" RowSpacing="5">
+                        <Grid Padding="5, 10" RowSpacing="8">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
@@ -30,17 +30,17 @@
                                     CommandParameter="{Binding .}"/>
                             </Grid.GestureRecognizers>
                             <Label Grid.Row="0" Text="{Binding TextPreview}" InputTransparent="True"/>
-                            <Label Grid.Row="1" Text="{Binding Date}" Style="{StaticResource LabelInfo}" FontSize="Small" InputTransparent="True"/>
+                            <Label Grid.Row="1" Text="{Binding Date}" Style="{StaticResource LabelInfo}" FontSize="Small" FontAttributes="Bold" InputTransparent="True"/>
                             
                             <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="0.5" BackgroundColor="{StaticResource DarkBlue}" />
                             
-                            <Frame Grid.Column="1" BackgroundColor="Red" Padding="10" CornerRadius="5" HasShadow="True" VerticalOptions="Center">
+                            <Frame Grid.RowSpan="3" Grid.Column="1" BackgroundColor="Red" Padding="5" CornerRadius="5" HasShadow="True" VerticalOptions="Center">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                         Command="{Binding BindingContext.DeleteCommand, Source={Reference notes}}"
                                         CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
-                                <Label Text="Borrar" TextColor="White" VerticalTextAlignment="Center"/>
+                                <Label Text="&#xf1f8;" FontSize="20"  TextColor="White" VerticalTextAlignment="Center"/>
                             </Frame>
                         </Grid>
                     </DataTemplate>
@@ -48,7 +48,7 @@
             </StackLayout>
 
             <AbsoluteLayout VerticalOptions="End" HorizontalOptions="Center">
-                <Button Text="Crear nota +" Style="{StaticResource ButtonPrimary}" Command="{Binding CreateCommand}"/>
+                <Button Text="&#xf044;" FontSize="25" Style="{StaticResource ButtonPrimary}" Command="{Binding CreateCommand}"/>
             </AbsoluteLayout>
         </StackLayout>
       

@@ -15,6 +15,12 @@
             <Color x:Key="White">#ffffff</Color>
             <Color x:Key="LightBlue">#f3f7f9</Color>
             
+            <!--Definimos la fuente-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesome">
+                <On Platform="iOS" Value="fontawesome-webfont" />
+                <On Platform="Android" Value="fontawesome-webfont.ttf#fontawesome-webfont" />
+            </OnPlatform>
+            
             <!--Definimos los estilos-->
             <Style x:Key="ButtonLogin" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource BlueWhite}" />
@@ -25,6 +31,16 @@
                 <Setter Property="FontSize"  Value="20"/>
                 <Setter Property="Padding" Value="15,0,15,0" />
 
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontAttributes" Value="Bold" />
             </Style>
 
             <Style x:Key="LabelHeader" TargetType="Label">
@@ -62,7 +78,6 @@
                 <Setter Property="CornerRadius" Value="15" />
                 <Setter Property="HasShadow" Value="True" />
             </Style>
-
 
         </ResourceDictionary>
         

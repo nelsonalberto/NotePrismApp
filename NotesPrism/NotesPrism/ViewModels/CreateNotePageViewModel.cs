@@ -29,6 +29,7 @@ namespace NotesPrism.ViewModels
             base.Initialize(parameters);
 
             Model = parameters.GetValue<FileModel>(Constants.ParamFileModel)?? new FileModel();
+            Title = (!string.IsNullOrEmpty(Model.Text)) ? "Editar nota" : "Nueva nota";
         }
         #endregion
 
